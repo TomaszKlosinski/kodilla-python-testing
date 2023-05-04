@@ -28,11 +28,3 @@ class TestPalindrome(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-
-# Zastanów się, jak (i czy) uwzględniać:
-
-# puste wejście
-# różną wielkość znaków
-# całe zdania z interpunkcją
-# liczby całkowite i zmiennoprzecinkowe
-# inne typy danych wejściowych (listy, daty, ...)
