@@ -9,7 +9,6 @@ def test_prime_factors():
 
     with pytest.raises(ValueError):
         assert factorization.prime_factors('test')
-        assert factorization.prime_factors(1.24)
 
     with pytest.raises(TypeError):
         assert factorization.prime_factors([1, 2, 3])
