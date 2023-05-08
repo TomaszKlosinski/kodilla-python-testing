@@ -1,8 +1,19 @@
+import math
+
 def prime_factors(number: int) -> list[int]:
 
-    try:
-        number = int(number)
-    except (ValueError, TypeError):
-        print("The input was not a valid integer")
+    n = int(number)
+    result = []
 
-    return [2, 2, 11, 2347, 38329]
+    while n % 2 == 0:
+        result.append(2),
+        n = n / 2
+
+    for i in range(3, int(math.sqrt(n))+1, 2):
+        while (n % i == 0):
+            result.append(i)
+            n = n / i
+    if n > 2:
+        result.append(n)
+
+    return result
