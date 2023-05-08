@@ -11,9 +11,9 @@ def prime_factors(number: int) -> list[int]:
 
     for i in range(3, int(math.sqrt(n))+1, 2):
         while (n % i == 0):
-            result.append(i)
+            result.append(int(i))
             n = n / i
     if n > 2:
-        result.append(n)
+        result.append(int(n))
 
     return result

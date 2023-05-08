@@ -3,6 +3,10 @@ import pytest
 
 
 def test_prime_factors():
+    assert factorization.prime_factors(2) == [2]
+    assert factorization.prime_factors(4) == [2, 2]
+    assert factorization.prime_factors(5) == [5]
+    assert factorization.prime_factors(10) == [2, 5]
     assert factorization.prime_factors(3958159172) == [2, 2, 11, 2347, 38329]
     assert factorization.prime_factors(3958159172.0) == [2, 2, 11, 2347, 38329]
     assert factorization.prime_factors('3958159172') == [2, 2, 11, 2347, 38329]
