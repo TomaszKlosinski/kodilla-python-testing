@@ -1,0 +1,10 @@
+Flask
+flask-classy
+flask-bootstrap
+flask-restful
+flask-admin
+flask-debugtoolbar
+flask-wtf
+flask-login
+flask-user
+Flask-PyMongo
