@@ -39,3 +39,17 @@ class TestLogin:
 
 
             assert Entry.query.count() == entry_count + 1
+
+
+    def test_cannot_login_with_invalid_username_and_password(self, client):
+        with app.app_context():
+            response = client.get("/")
+            response = response.click("Log in")
+            form = response.forms[0]
+            form["username"] = "dummy-user"
+            form["password"] = "dummy-password"
+            res = form.submit()
+            assert res.status_code == 200
+
+            assert 'Invalid username' in str(res.html)
+            assert 'Invalid password' in str(res.html)
