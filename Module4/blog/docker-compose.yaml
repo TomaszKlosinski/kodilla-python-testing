@@ -1,0 +1,17 @@
+version: "3.6"
+
+services:
+  quizzy:
+    build:
+      context: .
+    image: "quizzy"
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./:/app
+    environment:
+      FLASK_APP: autoapp.py
+      FLASK_DEBUG: 1
+      FLASK_ENV: development
+      DATABASE_URL: sqlite:////tmp/dev.db
+      SECRET_KEY: development
