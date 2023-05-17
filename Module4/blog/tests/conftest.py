@@ -15,7 +15,8 @@ def app():
     # Initilize test database
     with blog_app.app_context():
         db.create_all()
-        data_generator.generate_entries()
+        if not Entry.query.all():
+            data_generator.generate_entries()
 
     yield blog_app
 

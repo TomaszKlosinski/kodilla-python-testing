@@ -1,4 +1,5 @@
 import pytest
+import requests
 from selenium.webdriver import Chrome
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
@@ -17,6 +18,16 @@ def browser():
     chrome.quit()
 
 
+def environment_ready():
+    try:
+        r = requests.head("http://127.0.0.1:5000")
+        return True
+    except requests.ConnectionError:
+        return False
+
+
+@pytest.mark.skipif(environment_ready(),
+                reason="requires app running")
 def test_login_form_invalid_username_and_password(browser):
     browser.find_element(By.LINK_TEXT, 'Log in').click()
     WebDriverWait(browser, timeout=3).until(

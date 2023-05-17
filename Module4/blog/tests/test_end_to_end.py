@@ -12,7 +12,6 @@ def client(app):
         db.create_all()
     return TestApp(app)
 
-
 class TestLogin:
 
     def test_can_login_and_add_entry(self, client):
