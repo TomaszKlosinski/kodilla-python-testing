@@ -21,9 +21,10 @@ def browser():
 def environment_ready():
     try:
         r = requests.head("http://127.0.0.1:5000")
-        return True
+        if r.status_code == 200:
+            return False
     except requests.ConnectionError:
-        return False
+        return True
 
 
 @pytest.mark.skipif(environment_ready(),
