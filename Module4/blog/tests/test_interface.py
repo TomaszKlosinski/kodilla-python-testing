@@ -24,7 +24,9 @@ def environment_ready():
         if r.status_code == 200:
             return False
     except requests.ConnectionError:
-        return True
+        pass
+
+    return True
 
 
 @pytest.mark.skipif(environment_ready(),
